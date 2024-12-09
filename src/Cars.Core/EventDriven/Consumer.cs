@@ -23,8 +23,7 @@ public class Consumer : IConsumer
         _logger.LogInformation("Cars.Core.EventDriven Consumer.Initialize()");
 
         var factory = new ConnectionFactory { HostName = Const.HOST };
-        factory.AutomaticRecoveryEnabled = true;
-
+   
         var connection = await factory.CreateConnectionAsync();
         var channel = await connection.CreateChannelAsync();
 

@@ -138,6 +138,13 @@ To check out informations on the SQL Server database uses:
 User   :  sa
 Passwor:  LltF8Nx*yo
 
+# Next Steps for this project
+
+* Create unit tests
+* Place config options like connection string and falback path in appsettings
+* Add summary and comments to methods and classes
+* Implement a way to re-send the messages from fallback folder
+
 
 
 

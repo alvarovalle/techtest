@@ -24,8 +24,7 @@ public class Publisher : IPublisher
             _logger.LogInformation("Proxy.Core.EventDriven Publisher.Initialize");
 
             var factory = new ConnectionFactory { HostName = Const.HOST };
-            factory.AutomaticRecoveryEnabled = true;
-
+         
             var connection = await factory.CreateConnectionAsync();
             connection.ConnectionShutdownAsync += ConnectionShutdownAsync;
             _channel = await connection.CreateChannelAsync();
