@@ -9,6 +9,9 @@ This application receives the http post requests and then **publishes** an **eve
 
 **For the case when it can't publish the event** it will retry (3 times retry), and if even after retry, the publish remains not possible, so the application will **save the event in a fallback** which is this case will be a local storage, so the events **can be re-published after**
 
+
+<img src="img/diagram02.png" width="402" height="318" />
+
 (we are using simple text files here to simplify the explanation but it can be any other way of persistence)  
 
 in the file **Proxy.Core.Const.cs** you can configure your path
@@ -20,8 +23,6 @@ but it is only for demo.**
  public const string FALLBACKPATH = "C:\\alvaro\\fallback";
 
 ```
-
-<img src="img/diagram02.png" width="402" height="318" />
 
 **If fallback fails** so we need to tell the end user that the system could not process the request so we return a 500 status code to the end user.
 
@@ -42,7 +43,7 @@ Responsible to publish the event and to make all the resilience handling.
 
 ## The Cars application
 
-This application **consumes** an **event** from the queue and them process the **Bid** and then **save it to the database**.
+This application **consumes** an **event** from the queue and then process the **Bid** and then **save it to the database**.
 
 <img src="img/diagram01b.png" width="402" height="318" />
 
@@ -135,8 +136,9 @@ https://grafana.com/docs/k6/latest/get-started/running-k6/
 ### Database
 
 To check out informations on the SQL Server database uses:
-User   :  sa
-Passwor:  LltF8Nx*yo
+
+* User   :  sa
+* Password:  LltF8Nx*yo
 
 # Next Steps for this project
 
