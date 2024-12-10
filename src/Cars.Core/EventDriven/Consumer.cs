@@ -23,14 +23,12 @@ public class Consumer : IConsumer
         _logger.LogInformation("Cars.Core.EventDriven Consumer.Initialize()");
 
         var factory = new ConnectionFactory { HostName = Const.HOST };
-   
+
         var connection = await factory.CreateConnectionAsync();
         var channel = await connection.CreateChannelAsync();
 
         connection.ConnectionShutdownAsync += ConnectionShutdownAsync;
 
-        channel.QueueDeclareAsync(queue: Const.QUEUE, durable: true, exclusive: false, autoDelete: false,
-            arguments: null).Wait();
         var consumer = new AsyncEventingBasicConsumer(channel);
 
         consumer.ReceivedAsync += async (model, ea) =>
